@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&family=Lato:ital,wght@0,300;0,400;1,300&family=Roboto+Condensed:ital,wght@0,100;0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+:root{
+    --font-family-btn: 'Lato', sans-serif;
+    --font-family: 'Roboto Condensed', sans-serif;
+    --font-family-header:  'Roboto Condensed', sans-serif;
+    --font-size-body: 14px;
+    --font-size-button: 14px;
+    --font-weight-button: 700;
+    --color-white: #FFF;
+    --side-bar-background-color: #7315fe;
+    --body-background-color: #101820;
+    --body-background-combination: #15202b;
+    --detail-color: #FEE715;
+    --button-color: #15a0fe;
+    --color-th:#7315fe;
+    --ticker-label-color: #15a0fe;
+    --color-green: #15fe73;
+    --color-blue: #152cfe;
+    --color-orange: #fe7315;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3{
+    font-family: var(--font-family-header);
+    color: var(--color-white);
+}
+
+li{
+    cursor: pointer;
+    list-style-type: none;
+    color: var(--color-white);
+}
+
+body{
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    background-color: var(--body-background-color);
+}
+
+button{
+    font-family: var(--font-family-btn);
+    font-size: var(--font-size-button);
+    font-weight:var(--font-weight-button);
+    text-align: center;
+    cursor: pointer;
+}
+
+input, select{
+    border: 1px solid var(--body-background-color);
+    margin: 1px;
+    background-color: transparent;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+label{
+    padding: 5px;
+    font-weight: var(--font-weight-button);
+}

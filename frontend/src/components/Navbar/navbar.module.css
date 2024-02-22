@@ -1,0 +1,127 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    padding: 0px 80px 0px 60px;
+    align-self: stretch;
+    background-color: var(--grey-white);
+    border-bottom: 3px solid var(--body-background-combination);
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+header a{
+    font-size: 16px;
+    font-family: var(--font-family-links);
+    display: flex;
+    flex-direction: column;
+}
+
+header a:hover{
+    color: var(--color-green-1);
+    .cartBubble{
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+        border-color: var(--color-green-1);
+    }
+}
+
+
+.sectionMark{
+    width: 100%;
+    border: 2px solid var(--color-green-1);
+    display: none;
+}
+
+
+.profileMenu{
+    display: flex;
+    flex-direction: column;
+}
+
+.dropDownProfile{
+    position: absolute;
+    top:75px;
+    right: 50px;
+    width: 180px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--body-background-color);
+    border: 2px solid var(--color-th);
+    font-size: 16px;
+    font-family: var(--font-family-links);
+    font-weight: var(--font-weight);
+}
+
+.dropDownProfile::before{
+    content: '';
+    position: absolute;
+    top: -0.7rem;
+    right: 100px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: var(--grey-white);
+    border-left: 2px solid var(--color-th);
+    border-top: 2px solid var(--color-th);
+}
+
+.nickName{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: var(--font-family-links);
+    font-weight: var(--font-weight);
+    color:var(--color-white);
+}
+
+.username{
+   font-family: var(--font-family-links);
+}
+
+.profileToolbar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.profileToolbar > span{
+    display: flex;
+    gap: 10px;
+    font-weight: var(--font-weight);
+    color: var(--color-white);
+}
+
+@media screen and (max-width: 900px) {    
+    header{
+        justify-content: space-between;
+        padding: 0px 10px 0px 10px;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    header{
+        width: 100%;
+        justify-content: center;
+        padding: 0px 10px 0px 10px;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+
+    .dropDownProfile{
+        right: 5px;
+    }
+}
