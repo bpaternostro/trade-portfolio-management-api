@@ -1,4 +1,4 @@
-const ENV = "local"
+const ENV = "prod"
 const API_BASE_URL = ENV == "prod" ? 'https://bpaternostro.site/trader/api' : "http://localhost:8000/trader/api";
 
 export const ROOT = "/trader"

@@ -11,14 +11,21 @@ python manage.py migrate auth
 python manage.py migrate contenttypes
 python manage.py migrate sessions
 
-# Apply migrations for the 'sections' app
-echo "Applying migrations for 'sections' app..."
-python manage.py makemigrations sections
-python manage.py migrate sections
+# Apply migrations for the 'manager' app
+echo "Applying migrations for 'manager' app..."
+python manage.py makemigrations manager
+python manage.py migrate manager
+
+# Preparing data
+echo "Applying migrations for 'manager' app..."
+python manage.py import_tickers_data
+python manage.py import_data_from_coinbase
+python manage.py import_data_from_balanz 1
+python manage.py import_data_from_balanz 2
 
 python manage.py collectstatic --no-input # this move all static files to server
 
-gunicorn portfolio.wsgi:application --bind 0.0.0.0:8000
+gunicorn brucetrader.wsgi:application --bind 0.0.0.0:8080
 
 echo "Django docker is fully configured successfully."
 
