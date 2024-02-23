@@ -12,7 +12,7 @@ RUN pip install pipenv
 RUN pipenv sync --system           
 
 # Set environment variables
-ENV DJANGO_SETTINGS_MODULE=portfolio.settings
+ENV DJANGO_SETTINGS_MODULE=brucetrader.settings
 
 # copy project
 COPY . /backend/
