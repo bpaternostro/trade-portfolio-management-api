@@ -10,13 +10,19 @@ class Command(BaseCommand):
     help = 'Wait for the database to be available'
 
     def handle(self, *args, **options):
-        self.stdout.write(self.style.SUCCESS('Waiting for the database...'))
-        db_conn = None
-        while not db_conn:
+        self.stdout.write(self.style.SUCCESS('Waiting for the database Bruce...'))
+        max_retries = 30
+        retry_count = 0
+        while retry_count < max_retries:
             try:
-                db_conn = connections['default']
+                connections['default'].ensure_connection()
+                print("Database connection established.")
+                break
             except OperationalError:
-                self.stdout.write(self.style.WARNING('Database unavailable, waiting 1 second...'))
+                print("Database connection failed. Retrying...")
+                retry_count += 1
                 time.sleep(1)
+        else:
+            raise Exception("Unable to establish database connection.")
 
         self.stdout.write(self.style.SUCCESS('Database available!'))
