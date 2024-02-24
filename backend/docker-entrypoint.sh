@@ -1,4 +1,7 @@
 #!/bin/bash
+set -a  # automatically export all variables
+[ -f .env ] && . .env
+set +a
 
 # Wait for the database to be ready
 echo "Waiting for database to be ready..."
