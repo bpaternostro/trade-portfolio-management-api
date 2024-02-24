@@ -23,7 +23,7 @@ urlpatterns = [
     path('trader/admin/', admin.site.urls),
     path("trader/api/", include("config.api_router")),
     # Add a pattern to serve static files during development
-    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+    re_path(r'^trader_static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 ]
 
 # Add the following line to serve media files during development
