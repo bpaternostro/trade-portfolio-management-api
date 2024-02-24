@@ -20,7 +20,6 @@ class Coinbase(Exchange):
         try:
           response = self.session.get(URL_COIN_MARKET_CAP, params=COINBASE_PARAMETERS)
           coins_json = response.json()
-          print(f"Coinbase is returning {coins_json}")
           return coins_json["data"]
         except (ConnectionError, Timeout, TooManyRedirects) as e:
             print(e)

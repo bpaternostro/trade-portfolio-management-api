@@ -51,12 +51,12 @@ class FinancialInstrument(BaseModelName):
 
 class FinancialInstrumentApiData(BaseModel):
     financial_instrument = models.ForeignKey(FinancialInstrument, on_delete=models.CASCADE)
-    actual_price = models.DecimalField(max_digits=10, decimal_places=5)
-    actual_purchase_price = models.DecimalField(max_digits=10, decimal_places=2)
-    actual_sell_price = models.DecimalField(max_digits=10, decimal_places=2)
-    volume = models.IntegerField(blank=True)
-    max = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
-    min = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
+    actual_price = models.DecimalField(max_digits=20, decimal_places=5)
+    actual_purchase_price = models.DecimalField(max_digits=20, decimal_places=2)
+    actual_sell_price = models.DecimalField(max_digits=20, decimal_places=2)
+    volume = models.DecimalField(max_digits=20, decimal_places=2)
+    max = models.DecimalField(max_digits=20, decimal_places=2, blank=True)
+    min = models.DecimalField(max_digits=20, decimal_places=2, blank=True)
     variation = models.CharField(max_length=200, default=0)
     time = models.CharField(max_length=200)
     
@@ -95,7 +95,7 @@ class PortfolioFinancialInstrument(BaseModel):
 class PortfolioFinancialInstrumentOperation(BaseModel):
     portofolio_financial_instrument = models.ForeignKey(PortfolioFinancialInstrument, on_delete=models.CASCADE)
     sell_quantity = models.IntegerField(default=0, blank=True)
-    sell_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, default=0)
+    sell_price = models.DecimalField(max_digits=20, decimal_places=2, blank=True, default=0)
     sell_date = models.DateField(blank=True, null=True)
     fees = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
