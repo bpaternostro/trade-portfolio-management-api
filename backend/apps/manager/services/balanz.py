@@ -47,6 +47,7 @@ class Balanz(Exchange):
                 'Authorization': self.token,
             }
             resp = requests.get(BALANZ_COTIZACIONES_URL.get(financial_instrument), headers=self.headers)
+            print(f"Balanz is returning {resp}")
             if resp.status_code !=200:
                 raise Exception("It was impossible to connect with balanz")
         except Exception as e:
