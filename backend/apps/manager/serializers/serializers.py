@@ -170,7 +170,7 @@ class PortfolioGetDetailDataSerializer(serializers.ModelSerializer):
         return available > 0
     
     def get_volume(self, obj):
-        return float(FinancialInstrumentApiData.objects.filter(financial_instrument=obj.ticker).latest('created_on').volume)
+        return FinancialInstrumentApiData.objects.filter(financial_instrument=obj.ticker).latest('created_on').volume
     
     def get_volume_diff(self, obj):
         actual_volume = self.get_volume(obj)

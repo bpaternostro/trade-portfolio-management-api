@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { useParams } from 'react-router-dom'
+
 import { Dashboard, Sidebar, Navbar, Modal} from '../components'
 
 import { API_ENDPOINTS } from '../apiConfig'
@@ -11,6 +13,8 @@ import style from '../style/home.module.css'
 import axios from 'axios'
 
 const Home = () => {
+  const trader = useParams()
+  localStorage.setItem("operator", trader.id)
   const {actualPortfolio, setPortfolios, setActualPortfolio, portfolios, setLoading, loading, csrfToken, selectedTickers, setSelectedTickers } = useGlobalContext()
   const {toggleModal, toStatus} = useModalContext()
   const handleUpdateTicker = (e) => {
