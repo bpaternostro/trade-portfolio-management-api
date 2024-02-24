@@ -34,8 +34,9 @@ FINANCIAL_INSTRUMENTS = [
     {"type":0, "symbol": "NEAR", "name": "NEAR PROTOCOL"},
     {"type":0, "symbol": "SOL", "name": "SOLANA TOKEN"},
     {"type":0, "symbol": "LUNA", "name": "LUNA TOKEN"},
-    {"type":0, "symbol": "LUNAC", "name": "LUNA CLASSIC TOKEN"},
     {"type":0, "symbol": "OCEAN", "name": "OCEAN PROTOCOL"},
+    {"type":0, "symbol": "MANTA", "name": "MANTA NETWORK"},
+    {"type":0, "symbol": "PIXEL", "name": "PIXELS"},
 ]
 
 EXCHANGES_FEES = {
