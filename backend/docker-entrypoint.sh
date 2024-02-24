@@ -25,7 +25,7 @@ python manage.py import_data_from_balanz 2
 
 python manage.py collectstatic --no-input # this move all static files to server
 
-gunicorn brucetrader.wsgi:application --bind 0.0.0.0:8081
+gunicorn brucetrader.wsgi:application --bind 0.0.0.0:8000
 
 echo "Django docker is fully configured successfully."
 
