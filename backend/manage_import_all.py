@@ -14,9 +14,9 @@ def task_balanz_2():
     import_data_from_balanz(2)
 
 # Schedule tasks to run every 45 minutes
-schedule.every(45).minutes.do(task_coinbase)
-schedule.every(45).minutes.do(task_balanz_1)
-schedule.every(45).minutes.do(task_balanz_2)
+schedule.every(5).minutes.do(task_coinbase)
+schedule.every(5).minutes.do(task_balanz_1)
+schedule.every(5).minutes.do(task_balanz_2)
 
 # Keep the script running to execute scheduled tasks
 while True:

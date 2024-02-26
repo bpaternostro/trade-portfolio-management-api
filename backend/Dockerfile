@@ -19,7 +19,4 @@ COPY . /backend/
 
 RUN chmod +x /backend/docker-entrypoint.sh
 
-# Run the Python script
-CMD ["python", "manage_import_all.py"]
-
 ENTRYPOINT [ "/backend/docker-entrypoint.sh" ]

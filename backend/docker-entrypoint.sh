@@ -20,11 +20,16 @@ python manage.py makemigrations manager
 python manage.py migrate manager
 
 # Preparing data
-echo "Applying migrations for 'manager' app..."
+echo "Importing data"
 python manage.py import_tickers_data
 python manage.py import_data_from_coinbase
 python manage.py import_data_from_balanz 1
 python manage.py import_data_from_balanz 2
+
+
+# Preparing data
+echo "Schedulling imports"
+python manage_import_all.py
 
 python manage.py collectstatic --no-input # this move all static files to server
 
