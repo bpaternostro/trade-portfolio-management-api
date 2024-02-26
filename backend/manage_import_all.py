@@ -5,7 +5,7 @@ from django.core.management import execute_from_command_line
 
 # Set the DJANGO_SETTINGS_MODULE environment variable
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'brucetrader.settings')
-TIME_INTERVAL = os.environ.get('TIME_INTERVAL_API_PROCESS')
+TIME_INTERVAL = 5
 
 # Define your tasks
 def task_coinbase():
