@@ -28,12 +28,12 @@ python manage.py import_data_from_balanz 2
 
 python manage.py collectstatic --no-input # this move all static files to server
 
-# Wait for the database to be ready
-echo "Importing data from APIs ..."
-python manage.py schedule_imports
-
 gunicorn brucetrader.wsgi:application --bind 0.0.0.0:8000
 
 echo "Django docker is fully configured successfully."
+
+# Wait for the database to be ready
+echo "Importing data from APIs ..."
+python manage.py schedule_imports &
 
 exec "$@"
