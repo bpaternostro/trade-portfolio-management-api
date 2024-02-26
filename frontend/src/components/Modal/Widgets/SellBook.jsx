@@ -10,12 +10,15 @@ import { useGlobalContext } from '../../../context/GlobalContextProvider'
 import { useModalContext } from '../../../context/ModalContextProvider'
 
 const SellBook = () => {
-  const {actualTicker} = useGlobalContext();
+  const {actualTicker, csrfToken} = useGlobalContext();
   const {toggleModal} = useModalContext()
   const [tickerList, setTickerList] = useState([])
   
   useEffect(() => {
-    axios.get(`${API_ENDPOINTS.portofoliosFinInstrument}/${actualTicker.id}/get-sell/`)
+    axios.get(`${API_ENDPOINTS.portofoliosFinInstrument}/${actualTicker.id}/get-sell/`, {}, {headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrfToken,
+    }})
     .then((resp) => {
       setTickerList(resp.data)
     })

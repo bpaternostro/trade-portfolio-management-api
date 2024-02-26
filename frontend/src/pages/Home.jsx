@@ -20,7 +20,10 @@ const Home = () => {
   const handleUpdateTicker = (e) => {
     e.preventDefault()
     let updatedStatus = selectedTickers.map((t) => ({ ...t, status: toStatus, portfolio: actualPortfolio.id, ticker: t.ticker.id}))
-    axios.put(API_ENDPOINTS.portofoliosFinInstrumentUpdateStatus, updatedStatus)
+    axios.put(API_ENDPOINTS.portofoliosFinInstrumentUpdateStatus, updatedStatus, {headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrfToken,
+    }})
     .then((resp) => {
       setActualPortfolio(resp.data.portfolio_updated)
       setSelectedTickers([])

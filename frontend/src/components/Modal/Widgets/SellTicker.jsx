@@ -10,7 +10,7 @@ import  buttonStyle from '../../../style/buttons.module.css'
 import { API_ENDPOINTS } from '../../../apiConfig'
 
 const SellTicker = () => {
-    const {setActualPortfolio, actualTicker, setActualTicker} = useGlobalContext()
+    const {setActualPortfolio, actualTicker, setActualTicker, csrfToken} = useGlobalContext()
     const {setModalError, toggleModal} = useModalContext()
     const [error, setError] = useState(false)
 
@@ -48,7 +48,10 @@ const SellTicker = () => {
         fetch(`${API_ENDPOINTS.portofoliosFinInstrumentOperation}/`, 
         {
             method: "POST",
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+            },
             body: JSON.stringify(formValues)
         })
         .then( resp => {

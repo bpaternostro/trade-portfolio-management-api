@@ -11,7 +11,7 @@ import { API_ENDPOINTS } from '../../../apiConfig'
 import axios from 'axios'
 
 const MoveToPortfolio = () => {
-    const {actualPortfolio, portfolios, selectedTickers, setActualPortfolio, setSelectedTickers, setPortfolios} = useGlobalContext()
+    const {actualPortfolio, csrfToken, portfolios, selectedTickers, setActualPortfolio, setSelectedTickers, setPortfolios} = useGlobalContext()
     const {toggleModal} = useModalContext()
     const initialValues = {
         portfolio_from: actualPortfolio.id,
@@ -30,7 +30,10 @@ const MoveToPortfolio = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         let newPortfolio = selectedTickers.map((t) => ({ ...t, old_portfolio:actualPortfolio.id, portfolio: formValues.portfolio_to, ticker: t.ticker.id}))
-        axios.put(API_ENDPOINTS.portofoliosFinInstrumentMoveTicker, newPortfolio)
+        axios.put(API_ENDPOINTS.portofoliosFinInstrumentMoveTicker, newPortfolio, {headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken,
+        }})
         .then((resp) => {
             setActualPortfolio(resp.data.portfolio_updated)
             setSelectedTickers([])

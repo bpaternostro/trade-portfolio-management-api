@@ -16,7 +16,8 @@ const CreatePortfolio = () => {
             portfolioTypes, 
             portfolioStatus, 
             setPortfolioHasChanged, 
-            portfolioHasChanged} = useGlobalContext()
+            portfolioHasChanged,
+            csrfToken} = useGlobalContext()
     const {setModalError, toggleModal, isCreatePortfolioModal, isEditPortfolioModal} = useModalContext()
 
     const initialValues = {
@@ -40,7 +41,10 @@ const CreatePortfolio = () => {
         fetch(isCreatePortfolioModal ? `${API_ENDPOINTS.traderCreatePortfolio}/${localStorage.getItem("operator")}/create-portfolio/`: `${API_ENDPOINTS.portofolios}/${actualPortfolio.id}/`, 
         {
             method: isCreatePortfolioModal ? "POST": "PUT",
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+            },
             body: JSON.stringify(formValues)
         })
         .then( resp => {

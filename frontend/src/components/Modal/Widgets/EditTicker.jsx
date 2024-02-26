@@ -10,7 +10,7 @@ import  buttonStyle from '../../../style/buttons.module.css'
 import { API_ENDPOINTS } from '../../../apiConfig'
 
 const EditTicker = () => {
-    const {actualPortfolio, setActualPortfolio, actualTicker, setActualTicker, tickers} = useGlobalContext()
+    const {actualPortfolio, setActualPortfolio, actualTicker, setActualTicker, tickers, csrfToken} = useGlobalContext()
     const {setModalError, toggleModal} = useModalContext()
     let today = new Date()
     const initialValues = {
@@ -46,7 +46,10 @@ const EditTicker = () => {
         fetch(actualTicker ? `${API_ENDPOINTS.portofoliosFinInstrument}/${actualTicker.id}/`: `${API_ENDPOINTS.portofoliosFinInstrument}/`, 
         {
             method: method,
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+            },
             body: JSON.stringify(formValues)
         })
         .then( resp => {
