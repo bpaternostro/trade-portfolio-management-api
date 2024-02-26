@@ -4,7 +4,6 @@ ENV PYTHONUNBUFFERED=1
 
 RUN pip install --upgrade pip
 
-RUN mkdir -p /backend/logs
 WORKDIR /backend
 COPY Pipfile* /backend/
 
