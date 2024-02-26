@@ -1,1 +1,0 @@
-* * * * * python manage.py import_data_from_coinbase >> /backend/logs/cron.log 2>&1 && python manage.py import_data_from_balanz 1 >> /backend/logs/cron.log 2>&1 && python manage.py import_data_from_balanz 2 >> /backend/logs/cron.log 2>&1
