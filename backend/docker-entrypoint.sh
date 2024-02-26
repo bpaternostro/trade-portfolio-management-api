@@ -34,6 +34,6 @@ echo "Django docker is fully configured successfully."
 
 # Wait for the database to be ready
 echo "Importing data from APIs ..."
-python manage.py schedule_imports &
+python manage.py schedule_imports
 
 exec "$@"
