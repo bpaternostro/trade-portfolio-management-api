@@ -98,7 +98,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/app/logs/debug.log',
+            'filename': '/backend/logs/debug.log',
         },
     },
     'loggers': {
