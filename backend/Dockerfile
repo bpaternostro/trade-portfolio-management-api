@@ -4,6 +4,7 @@ ENV PYTHONUNBUFFERED=1
 
 RUN pip install --upgrade pip
 
+RUN mkdir -p /backend/logs
 WORKDIR /backend
 COPY Pipfile* /backend/
 
@@ -17,6 +18,7 @@ ENV DJANGO_SETTINGS_MODULE=brucetrader.settings
 # copy project
 COPY . /backend/
 
+RUN chown -R 1000:1000 /backend/logs
 RUN chmod +x /backend/docker-entrypoint.sh
 
 ENTRYPOINT [ "/backend/docker-entrypoint.sh" ]
