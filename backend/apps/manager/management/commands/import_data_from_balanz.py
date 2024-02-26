@@ -28,7 +28,8 @@ class Command(BaseCommand):
         financial_type_label = FinancialInstrumentType.CEDEAR.label if process_type == 1 else FinancialInstrumentType.STOCK.label
         rates = balanz.get_rates(financial_instrument=financial_type_label)
         if not rates:
-            raise CommandError(f'It was impossible to execute process type {process_type}')
+            self.stdout.write(self.style.ERROR(f'It was impossible to execute process type {process_type}'))
+            return False
         actives_to_analyze = FinancialInstrument.objects.filter(type=process_type, status=Status.OPEN)
         actives = list(actives_to_analyze.values_list("symbol", flat=True))
         actives_to_process = {c["ticker"]:c for c in rates if c["ticker"] in actives}

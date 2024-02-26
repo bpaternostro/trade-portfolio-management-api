@@ -13,16 +13,25 @@ class Command(BaseCommand):
         # Define your tasks
         def task_coinbase():
             self.stdout.write(self.style.SUCCESS('Running import data from coinbase'))
-            execute_from_command_line(['manage.py', 'import_data_from_coinbase'])
-
+            try:
+                execute_from_command_line(['manage.py', 'import_data_from_coinbase'])
+            except Exception as e:
+                self.stdout.write(self.style.WARNING('It was not possible to execute coinbase'))
+        
         def task_balanz_1():
             self.stdout.write(self.style.SUCCESS('Running import cedears data from balanz'))
-            execute_from_command_line(['manage.py', 'import_data_from_balanz', "1"])
-
+            try:
+                execute_from_command_line(['manage.py', 'import_data_from_balanz', "1"])
+            except Exception as e:
+                self.stdout.write(self.style.WARNING('It was not possible to execute balanz 1'))
+                
         def task_balanz_2():
             self.stdout.write(self.style.SUCCESS('Running import stock data from balanz'))
-            execute_from_command_line(['manage.py', 'import_data_from_balanz', "2"])
-
+            try:
+                execute_from_command_line(['manage.py', 'import_data_from_balanz', "2"])
+            except Exception as e:
+                self.stdout.write(self.style.WARNING('It was not possible to execute balanz 2'))
+                
         # Schedule the task
         schedule.every(TIME_INTERVAL).minutes.do(task_coinbase)
         schedule.every(TIME_INTERVAL).minutes.do(task_balanz_1)
