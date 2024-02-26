@@ -9,7 +9,7 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         # Define your task to be executed every N minutes
-        TIME_INTERVAL = 5
+        TIME_INTERVAL = 35
         # Define your tasks
         def task_coinbase():
             self.stdout.write(self.style.SUCCESS('Running import data from coinbase'))
