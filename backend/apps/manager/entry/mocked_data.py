@@ -37,6 +37,7 @@ FINANCIAL_INSTRUMENTS = [
     {"type":0, "symbol": "OCEAN", "name": "OCEAN PROTOCOL"},
     {"type":0, "symbol": "MANTA", "name": "MANTA NETWORK"},
     {"type":0, "symbol": "PIXEL", "name": "PIXELS"},
+    {"type":0, "symbol": "RNDR", "name": "RENDER TOKEN"},
 ]
 
 EXCHANGES_FEES = {
