@@ -136,42 +136,55 @@ const TickerRow = ({tickerData}) => {
                   {ticker.symbol}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}># buy</span>
                   {buy_quantity}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>$ buy</span>
                   {buy_price_str}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>buy fees</span>
                   {buy_fees}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>total buy</span>
                   {total_buy}
                 </span>
                 <span className={styles.tickerDate}>
+                  <span className={styles.mobileLabel}>buy date</span>
                   {buy_date}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>current $</span>
                   {current_price}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>current total</span>
                   {current_total}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>var $</span>
                   {variation_in_usd}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>var</span>
                   {variation}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>vol</span>
                   {volume}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>vol diff</span>
                   {volume_diff}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>available</span>
                   {available}
                 </span>
                 <span>
+                  <span className={styles.mobileLabel}>status</span>
                   {globalStatus ? <BsArrowUpRightSquareFill size={18} color={"#3ED17A"}/>:<BsArrowDownRightSquareFill size={20} color={"#C70039"}/>} 
                 </span>
                 <span>
