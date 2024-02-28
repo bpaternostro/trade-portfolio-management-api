@@ -174,7 +174,11 @@ class PortfolioGetDetailDataSerializer(serializers.ModelSerializer):
     
     def get_volume_diff(self, obj):
         actual_volume = self.get_volume(obj)
-        percentage =  actual_volume / FinancialInstrumentApiData.objects.filter(financial_instrument=obj.ticker).order_by('-created_on')[1].volume
+        try:
+            previews_vol = FinancialInstrumentApiData.objects.filter(financial_instrument=obj.ticker).order_by('-created_on')[1].volume
+        except Exception as e:
+            return 0
+        percentage =  actual_volume / previews_vol
         return f'{round(percentage *100, 2)} %' if actual_volume else 0
     
 
